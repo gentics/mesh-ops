@@ -30,7 +30,7 @@ After=basic.target network.target syslog.target
 [Service]
 User=mesh
 Restart=on-failure
-ExecStart=/usr/bin/java -Xms$MEM -Xmx$MEM -XX:MaxDirectMemorySize=$DIRECT_SIZE -Dstorage.diskCache.bufferSize=64 -jar mesh-server.jar
+ExecStart=/usr/bin/java -Xms$HEAP_SIZE -Xmx$HEAP_SIZE -XX:MaxDirectMemorySize=$DIRECT_SIZE -Dstorage.diskCache.bufferSize=64 -jar mesh-server.jar
 
 WorkingDirectory=$MESH_DIR
 LimitMEMLOCK=infinity
