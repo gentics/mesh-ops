@@ -15,9 +15,12 @@ In order to access the instances via SSH you need to add your SSH key in the Het
 
 For the Image you need to select **Debian 10**.
 
+![Step 2](step-2.png "Hetzner Cloud Step 2")
+
 Additional volumes or networks are not needed / covered by this guide.
 
-![Step 2](step-2.png "Hetzner Cloud Step 2")
+![Step 2](step-2.2.png "Hetzner Cloud Step 2")
+
 
 ## (6) Additional features
 
@@ -29,7 +32,7 @@ Add the *cloud-init* conifguration as **User data* within the **Additional featu
 #cloud-config
 
 runcmd:
-  - [ bash, -c, "$(wget -O - https://raw.githubusercontent.com/gentics/mesh-ops/master/aws-lightsail/launch-script.sh)"]
+  - [ bash, -c, "$(wget -O - https://raw.githubusercontent.com/gentics/mesh-ops/master/hetzner-cloud/launch-script.sh)"]
 ```
 
 ## (7) - SSH key

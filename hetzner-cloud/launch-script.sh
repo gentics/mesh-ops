@@ -22,9 +22,10 @@ MESH_ELASTICSEARCH_URL=${MESH_ELASTICSEARCH_URL:-null}
 MESH_HTTP_PORT=${MESH_HTTP_PORT:-80}
 
 echo -e "\nInstalling Open JRE 11"
+apt-get update
 apt-get install -y openjdk-11-jre-headless
 
-echo -e "\nInstalling Gentics Mesh $MESH_VERISON"
+echo -e "\nInstalling Gentics Mesh $MESH_VERSION"
 mkdir -p $MESH_DIR
 cd $MESH_DIR
 wget https://maven.gentics.com/maven2/com/gentics/mesh/mesh-server/$MESH_VERSION/mesh-server-$MESH_VERSION.jar
