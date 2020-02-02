@@ -1,6 +1,6 @@
 # Gentics Mesh On Hetzner Cloud
 
-The [Hetzner Cloud](https://www.hetzner.com/cloud) service allow you to start a Gentics Mesh instance for as little as 2.96€ per month.
+The [Hetzner Cloud](https://www.hetzner.com/cloud) service allow you to start a Gentics Mesh instance for as little as 2.99€ per month.
 
 ## Create Project
 
@@ -11,7 +11,6 @@ The [Hetzner Cloud](https://www.hetzner.com/cloud) service allow you to start a 
 In order to access the instances via SSH you need to add your SSH key in the Hetzner cloud interface. Depending on your setup you need to add your `id_rsa.pub` file.
 
 ## Configure Instance
-
 
 For the Image you need to select **Debian 10**.
 
@@ -24,26 +23,29 @@ Additional volumes or networks are not needed / covered by this guide.
 
 ## (6) Additional features
 
-![Step 2.1](step-2.1.png "Hetzner Cloud Step 2.1")
-
-Add the *cloud-init* conifguration as **User data* within the **Additional features** section.
+Add the *cloud-init* configuration as **User data* within the **Additional features** section.
 
 ```bash
 #cloud-config
 
 runcmd:
-  - [ bash, -c, "$(wget -O - https://raw.githubusercontent.com/gentics/mesh-ops/master/hetzner-cloud/launch-script.sh)"]
+ - 'HEAP_SIZE=280m INITIAL_PW=MyInitialPassword MESH_VERSION=1.4.0 bash -c "$(wget -O - https://raw.githubusercontent.com/gentics/mesh-ops/master/hetzner-cloud/launch-script.sh)"'
 ```
+
+![Step 2.3](step-2.3.png "Hetzner Cloud Step 2.3")
 
 ## (7) - SSH key
 
 Ensure that your previously created key has been selected.
 
+![Step 2.4](step-2.4.png "Hetzner Cloud Step 2.4")
+
 ## (8) - Name
 
 Name your instance
 
+![Step 2.5](step-2.5.png "Hetzner Cloud Step 2.5")
+
 ## Instance 
 
 The setup of your instance may take 2 to 5 minutes depending on the speed of the setup process.
-
